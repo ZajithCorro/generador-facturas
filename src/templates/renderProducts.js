@@ -1,11 +1,10 @@
 import productItem from '@components/productItem';
+import { addListenersQuantity } from '@components/quantity';
 
-const renderProducts = (productList) => {
+export function renderProducts(productList) {
   const productsContainer = document.querySelector('.products');
-
   const productsHTML = productList.map((el) => productItem(el));
 
   productsContainer.innerHTML = productsHTML.join('');
-};
-
-export default renderProducts;
+  addListenersQuantity();
+}

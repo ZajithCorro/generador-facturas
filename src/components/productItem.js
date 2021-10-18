@@ -8,9 +8,9 @@ const productItem = ({ id, title, price, image }) => {
         <p class="product-details-description-price">$${price}</p>
 
         <div class="quantity">
-          <button class="quantity-plus">-</button>
+          <button class="quantity-minus">-</button>
           <span>1</span>
-          <button class="quantity-minus">+</button>
+          <button class="quantity-plus">+</button>
         </div>
 
       </div>
