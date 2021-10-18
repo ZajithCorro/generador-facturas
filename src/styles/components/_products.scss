@@ -28,14 +28,19 @@
     flex-direction: column;
     justify-content: space-between;
 
+    &-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
     &-description {
-      &-title {
-        font-size: 1.2rem;
-        font-weight: 500;
-      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       &-price {
         margin: 0.5rem 0;
+        color: var(--secondary-color);
       }
     }
   }
