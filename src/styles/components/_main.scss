@@ -4,4 +4,10 @@ main {
   padding: 0 0.5em;
   max-width: 1400px;
   height: 100%;
+  margin: 0 auto;
+  gap: 1rem;
+
+  @media (min-width: 850px) {
+    grid-template-columns: 2fr 1fr;
+  }
 }
