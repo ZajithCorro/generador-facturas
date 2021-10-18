@@ -1,5 +1,5 @@
 import { getAllProducts } from '@services/getAllProducts';
-import renderProducts from './templates/renderProducts';
+import renderProducts from '@templates/renderProducts';
 import '@styles/main.scss';
 
 async function init() {
