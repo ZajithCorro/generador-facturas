@@ -1,0 +1,43 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  justify-items: center;
+}
+
+.product {
+  background-color: #ffff;
+  border-radius: 10px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 100%;
+
+  &-image {
+    max-width: 100%;
+    height: 60%;
+    object-fit: contain;
+    padding: 0.5rem;
+  }
+
+  &-details {
+    padding: 1rem 0.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-description {
+      &-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      &-price {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}

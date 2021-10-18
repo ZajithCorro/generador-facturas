@@ -1,0 +1,10 @@
+header {
+  height: var(--height-header);
+  background-color: var(--header-color);
+  color: #fff;
+  font-size: 1.5rem;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
