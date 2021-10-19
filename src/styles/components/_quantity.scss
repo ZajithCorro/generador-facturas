@@ -1,7 +1,5 @@
 .quantity {
   button {
-    color: #ffff;
-    background-color: var(--header-color);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -15,10 +13,14 @@
   }
 
   .quantity-plus {
+    background-color: #3d78a4;
+    color: #ffff;
     margin-left: 5px;
   }
 
   .quantity-minus {
+    background-color: var(--background-color);
+    color: inherit;
     margin-right: 5px;
   }
 }
