@@ -7,6 +7,7 @@ export function addListenersBtnProduct(products, myCart) {
       const quantity = parseInt(
         target.closest('div').querySelector('div.quantity span').textContent
       );
+      target.closest('div').querySelector('div.quantity span').textContent = 1;
       const product = products.filter((product) => product.id === id)[0];
 
       myCart.addToCart(product, quantity);
