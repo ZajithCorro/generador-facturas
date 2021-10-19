@@ -1,13 +1,12 @@
+import Cart from '@components/Cart';
+import ListProducts from '@components/ListProducts';
 import { getAllProducts } from '@services/getAllProducts';
-import { renderProducts } from '@templates/renderProducts';
-import { addListenersBtnProduct } from '@utils/addListenersBtnProduct';
 import '@styles/main.scss';
 
 async function init() {
   const products = await getAllProducts();
-
-  renderProducts(products);
-  addListenersBtnProduct(products);
+  const myCart = new Cart();
+  const listProducts = new ListProducts(products, myCart);
 }
 
 window.addEventListener('load', init);

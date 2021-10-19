@@ -1,16 +1,15 @@
-import { addToCart } from '@utils/addToCart';
-
-export function addListenersBtnProduct(products) {
+export function addListenersBtnProduct(products, myCart) {
   document.querySelectorAll('.btn-add').forEach((btn) => {
     btn.addEventListener('click', (event) => {
       const { target } = event;
 
-      const id = target.closest('section').dataset.id;
+      const id = parseInt(target.closest('section').dataset.id);
       const quantity = parseInt(
         target.closest('div').querySelector('div.quantity span').textContent
       );
+      const product = products.filter((product) => product.id === id)[0];
 
-      addToCart(id, products, quantity);
+      myCart.addToCart(product, quantity);
     });
   });
 }
