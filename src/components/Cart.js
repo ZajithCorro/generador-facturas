@@ -36,17 +36,22 @@ export default class Cart {
 
   _updateCart() {
     const cartList = document.querySelector('.cart-list');
+    const cartTotal = document.querySelector('.cart-total');
+    let totalCart = 0;
 
     if (!this._products.length) {
       cartList.innerHTML = `<div class="cart-list-empty">
         Your cart is empty. Add products from the list
-      </div>`;
+      </div>
+      `;
+      cartTotal.classList.add('d-none');
       return;
     }
 
     const htmlProducts = this._products.map(
       ({ title, price, id, quantity }) => {
         const totalPrice = price * quantity;
+        totalCart = totalCart + totalPrice;
 
         return `<div class="cart-list-item" data-id="${id}">
           <div class="cart-list-item-description">
@@ -65,6 +70,13 @@ export default class Cart {
       }
     );
 
+    if (cartTotal.classList.contains('d-none'))
+      cartTotal.classList.remove('d-none');
+
     cartList.innerHTML = htmlProducts.join('');
+    cartTotal.innerHTML = `
+      <p>Total</p>
+      <p>$${totalCart}</p>
+    `;
   }
 }
