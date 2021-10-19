@@ -37,6 +37,7 @@ export default class Cart {
   _updateCart() {
     const cartList = document.querySelector('.cart-list');
     const cartTotal = document.querySelector('.cart-total');
+    const btnPay = document.querySelector('.cart-btn');
     let totalCart = 0;
 
     if (!this._products.length) {
@@ -45,6 +46,7 @@ export default class Cart {
       </div>
       `;
       cartTotal.classList.add('d-none');
+      btnPay.classList.add('d-none');
       return;
     }
 
@@ -72,6 +74,8 @@ export default class Cart {
 
     if (cartTotal.classList.contains('d-none'))
       cartTotal.classList.remove('d-none');
+
+    if (btnPay.classList.contains('d-none')) btnPay.classList.remove('d-none');
 
     cartList.innerHTML = htmlProducts.join('');
     cartTotal.innerHTML = `
