@@ -15,7 +15,7 @@ const productItem = ({ id, title, price, image }) => {
 
       </div>
 
-      <button class="btn-add">Add to cart</button>
+      <button class="btn btn-yellow btn-add">Add to cart</button>
     </div>
   </section>`;
 };

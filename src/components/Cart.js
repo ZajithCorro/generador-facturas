@@ -1,3 +1,4 @@
+import { addListenersQuantityCart } from '@components/quantity';
 export default class Cart {
   constructor() {
     this._products = [];
@@ -82,5 +83,67 @@ export default class Cart {
       <p>Total</p>
       <p>$${totalCart}</p>
     `;
+
+    this._addListenersQuantityCart();
+  }
+
+  _increaseQuantityProductInCart(id) {
+    const idFormat = parseInt(id);
+    const product = this._products.find((product) => product.id === idFormat);
+    const productIndex = this._products.findIndex(
+      (product) => product.id === idFormat
+    );
+    const newProduct = { ...product, quantity: product.quantity + 1 };
+    this._products[productIndex] = newProduct;
+    this._updateCart();
+  }
+
+  _decreaseQuantityProductInCart(id) {
+    const idFormat = parseInt(id);
+    const product = this._products.find((product) => product.id === idFormat);
+    const productIndex = this._products.findIndex(
+      (product) => product.id === idFormat
+    );
+
+    if (product.quantity === 1) {
+      this._products.splice(productIndex, 1);
+    } else {
+      const newProduct = { ...product, quantity: product.quantity - 1 };
+      this._products[productIndex] = newProduct;
+    }
+
+    this._updateCart();
+  }
+
+  _addListenersQuantityCart() {
+    document
+      .querySelectorAll('.cart-list-item-actions .quantity-plus')
+      .forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+          const { target } = event;
+          const quantityContainer = target.closest('div.quantity');
+          const idProduct = target.closest('.cart-list-item').dataset.id;
+          const spanQuantity = quantityContainer.querySelector('span');
+          const valueSpan = parseInt(spanQuantity.textContent);
+          spanQuantity.textContent = valueSpan + 1;
+
+          this._increaseQuantityProductInCart(idProduct);
+        });
+      });
+
+    document
+      .querySelectorAll('.cart-list-item-actions .quantity-minus')
+      .forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+          const { target } = event;
+          const quantityContainer = target.closest('div.quantity');
+          const idProduct = target.closest('.cart-list-item').dataset.id;
+          const spanQuantity = quantityContainer.querySelector('span');
+          const valueSpan = parseInt(spanQuantity.textContent);
+
+          spanQuantity.textContent = valueSpan - 1;
+          this._decreaseQuantityProductInCart(idProduct);
+        });
+      });
   }
 }
